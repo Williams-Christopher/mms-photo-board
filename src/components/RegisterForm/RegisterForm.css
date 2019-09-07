@@ -1,0 +1,23 @@
+.RegisterForm fieldset {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.RegisterForm .row {
+    margin: 10px;
+    text-align: center;
+}
+
+.RegisterForm .row label {
+    display: inline-block;
+    width: 100px;
+}
+
+.RegisterForm .row input {
+    width: 200px;
+}
+
+.RegisterForm button {
+    display: block;
+    margin: 0 auto;
+}

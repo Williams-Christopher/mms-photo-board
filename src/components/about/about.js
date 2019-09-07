@@ -9,7 +9,7 @@ class About extends React.Component {
 
     render() {
         return (
-            <section className='About'>
+            <>
                 <div className='About__top'>
                     <article>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a justo ac lorem venenatis volutpat. Ut at urna luctus, pharetra ex ut, tempus libero. Phasellus dictum eleifend mi. Nulla vitae feugiat sem, at euismod felis. Vivamus ullamcorper, enim at iaculis faucibus, turpis nisi ullamcorper orci, vitae rutrum quam est id diam. Maecenas sollicitudin purus est, vitae consequat orci mollis eu. Nullam vehicula lobortis enim nec ultricies. Duis lobortis ut tellus id elementum. Aenean tortor nulla, convallis eu eleifend ut, condimentum eget elit. </p>
@@ -23,7 +23,7 @@ class About extends React.Component {
                     </article>
                 </div>
                 <Link to='/SignUp'>Sign up now</Link>
-            </section>
+            </>
         );
     };
 };
