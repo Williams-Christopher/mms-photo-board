@@ -1,0 +1,15 @@
+.Footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.Footer p {
+    display: inline;
+}
+
+.Footer a {
+    margin: 0 20px;
+    text-decoration: none;
+}

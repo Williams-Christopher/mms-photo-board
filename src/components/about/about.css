@@ -1,0 +1,33 @@
+.About {
+
+}
+
+.About__top, .About__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+.About article, .About img {
+    display: inline;
+    max-width: 45%;
+    max-height: 30%;
+    margin: 2%;
+}
+
+.About a {
+    display: block;
+    text-align: center;
+}
+
+@media(max-width: 450px) {
+    .About__top, .About__bottom {
+        flex-direction: column;
+    }
+
+    .About article, .About img {
+        max-width: 90%;
+    }
+}

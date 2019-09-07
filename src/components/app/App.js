@@ -1,16 +1,23 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Header from '../navigation/navigation';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
+import About from '../About/About';
+import FourOhFourPage from '../../routes/FourOhFourPage/FourOhFourPage';
 
 function App() {
   return (
     <>
-        <header className='App'>
-            <Header />
-        </header>
+        <Navigation />
+        {/* <header className='App'>
+        </header> */}
         <main role="main">
-          <p>Main content placeholder</p>
+          <Switch>
+            <Route path='/About' component={About} />
+            <Route component={FourOhFourPage} />
+          </Switch>
         </main>
+        <Footer />
     </>
   );
 }

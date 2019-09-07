@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './navigation.css';
+import './Navigation.css';
 
 class Navigation extends React.Component {
     render() {
@@ -8,20 +8,20 @@ class Navigation extends React.Component {
             <nav role="navigation" className='NavTop'>
                 <div className='NavTop__container'>
                     <h1 className='NavTop__title'>
-                        Photo Board
+                        MMS Photo Board
                     </h1>
                     <ul className='NavTop__links'>
                         <li className='NavTop__link'>
-                            <Link to='#'>About</Link>   
+                            <Link to='/About'>About</Link>
                         </li>
                         <li className='NavTop__link'>
-                            <Link to='#'>Sign-up</Link>   
+                            <Link to='/SignUp'>Sign-up</Link>
                         </li>
                         <li className='NavTop__link'>
-                            <Link to='#'>Login</Link>   
+                            <Link to='/Login'>Login</Link>
                         </li>
                         <li className='NavTop__link'>
-                            <Link to='#'>Logout</Link>   
+                            <Link to='/Logout'>Logout</Link>
                         </li>
                     </ul>
                 </div>
