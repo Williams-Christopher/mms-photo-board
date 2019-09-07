@@ -8,7 +8,9 @@ class Navigation extends React.Component {
             <nav role="navigation" className='NavTop'>
                 <div className='NavTop__container'>
                     <h1 className='NavTop__title'>
-                        MMS Photo Board
+                        <Link to='/'>
+                            MMS Photo Board
+                        </Link>
                     </h1>
                     <ul className='NavTop__links'>
                         <li className='NavTop__link'>

@@ -1,0 +1,14 @@
+.MediaItem {
+    max-width: 500px;
+    margin: 25px;
+  }
+  
+  .MediaItem__media {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+  
+  .MediaItem__likes_text {
+    display: inline;
+  }

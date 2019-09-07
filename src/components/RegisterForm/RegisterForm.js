@@ -24,7 +24,7 @@ class RegisterForm extends React.Component {
                     </div>
                     <div className='row'>
                         <label htmlFor='verify-password'>Verify password:</label>
-                        <input type='text' name='verify-password' id='verify-password' required />
+                        <input type='password' name='verify-password' id='verify-password' required />
                     </div>
                     <div className='row'>
                         <label htmlFor='phone'>Phone number:</label>
