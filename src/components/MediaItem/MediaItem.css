@@ -1,14 +1,35 @@
 .MediaItem {
-    max-width: 500px;
-    margin: 25px;
-  }
-  
-  .MediaItem__media {
-    width: 100%;
-    height: auto;
-    margin: auto;
-  }
-  
-  .MediaItem__likes_text {
-    display: inline;
-  }
+  max-width: 500px;
+  margin: 25px;
+  padding: 25px;
+  background-color: lightgrey;
+}
+
+.MediaItem__media {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.MediaItem__caption {
+  display: inline;
+  margin: 0 4px;
+}
+
+.MediaItem__footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.MediaItem__likes_text {
+  display: inline;
+}
+
+.MediaItem__likes_count {
+  margin: 0 4px;
+}
+
+.MediaItem__place_name {
+  display: inline;
+}
