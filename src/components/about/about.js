@@ -12,14 +12,18 @@ class About extends React.Component {
             <>
                 <div className='About__top'>
                     <article>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a justo ac lorem venenatis volutpat. Ut at urna luctus, pharetra ex ut, tempus libero. Phasellus dictum eleifend mi. Nulla vitae feugiat sem, at euismod felis. Vivamus ullamcorper, enim at iaculis faucibus, turpis nisi ullamcorper orci, vitae rutrum quam est id diam. Maecenas sollicitudin purus est, vitae consequat orci mollis eu. Nullam vehicula lobortis enim nec ultricies. Duis lobortis ut tellus id elementum. Aenean tortor nulla, convallis eu eleifend ut, condimentum eget elit. </p>
+                        <p>
+                            Sharing photos of interesting things is often fun to do. Sharing them can sometimes be a distracting hassle. You pop onto Facebook or Twitter and immediately are swamped with notifications, memes, cat photos, and some new story about 'Florida Man'. Sometimes it would be nice just to share what you came to share and move on.
+                        </p>
                     </article>
                     <img src='https://picsum.photos/300' alt='Placeholder' />
                 </div>
                 <div className='About__bottom'>
                     <img src='https://picsum.photos/300' alt='More placeholder text' />
                     <article>
-                        <p>Ut in metus eu sapien vestibulum ultrices quis vel tellus. Nam pharetra tempor dolor, consectetur viverra sapien ultricies ut. Donec lacinia aliquam erat. Ut sed pretium metus. Quisque hendrerit nunc in sollicitudin posuere. Sed tempus imperdiet tellus, sit amet volutpat lacus tempor non. Vivamus lobortis urna sodales mauris condimentum, vitae eleifend purus efficitur. Proin et molestie urna. Aliquam eget purus ipsum.</p>
+                        <p>
+                            That's why MMS Photo Board is here. Share what's interesting without distraction. Using simple text messages, send a photo and, optionally, a text caption along with it, just like you'd text a photo to a friend. MMS Photo Board gets your message, posts it, and sends you back a link to your post. If you want, share that link later on another site. Come back to MMS Photo Board and see what others have shared and like what you find interesting.
+                        </p>
                     </article>
                 </div>
                 <Link to='/SignUp'>Sign up now</Link>

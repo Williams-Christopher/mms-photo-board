@@ -7,10 +7,7 @@ class MediaItem extends React.Component {
         return (
             <div className='MediaItem'>
                 <img className='MediaItem__media' src={this.props.url} alt={''} />
-                <FontAwesomeIcon icon={'quote-left'} size='sm' />
-                    <p className='MediaItem__caption'><em>{this.props.caption}</em></p>
-                <FontAwesomeIcon icon={'quote-right'} size='sm' />
-                {/* <button className='MediaItem__like_button'>Like</button> */}
+                <p className='MediaItem__caption'><em>{this.props.caption}</em></p>
                 <div className='MediaItem__footer'>
                     <p className='MediaItem__likes_text'>
                         <FontAwesomeIcon icon={'thumbs-up'} style={{color: 'blue'}}/>
@@ -25,8 +22,7 @@ class MediaItem extends React.Component {
                         {this.props.place_name}
                     </p>
                 </div>
-                    
-                </div>
+            </div>
         );
     };
 };
