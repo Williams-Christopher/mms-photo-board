@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Router } from 'react-router-dom';
-import Navigation from './Navigation';
+import FourOhFour from './FourOhFourPage';
 
 const history = {
     createHref: jest.fn(),
@@ -16,7 +16,7 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <BrowserRouter>
         <Router history={history}>
-            <Navigation />
+            <FourOhFour />
         </Router>
     </BrowserRouter>
     , div);

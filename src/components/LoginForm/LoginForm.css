@@ -1,0 +1,23 @@
+.LoginForm fieldset {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.LoginForm .row {
+    margin: 10px;
+    text-align: center;
+}
+
+.LoginForm .row label {
+    display: inline-block;
+    width: 100px;
+}
+
+.LoginForm .row input {
+    width: 200px;
+}
+
+.LoginForm button {
+    display: block;
+    margin: 0 auto;
+}
