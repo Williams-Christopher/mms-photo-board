@@ -1,7 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Router } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faThumbsUp, faQuoteLeft, faQuoteRight, faMapMarkedAlt, faAt } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import MediaPage from './MediaPage';
+
+library.add(
+  faThumbsUp, // thumbs up on media
+  faQuoteLeft, // Quotes on media
+  faQuoteRight,
+  faMapMarkedAlt, // place_name on media
+  faGithub, // Footer
+  faAt // Footer
+);
 
 const history = {
     createHref: jest.fn(),
