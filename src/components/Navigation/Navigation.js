@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TokenServices from '../../services/token-services';
 import './Navigation.css';
 
 class Navigation extends React.Component {
@@ -15,15 +16,27 @@ class Navigation extends React.Component {
                     <li className='NavTop__link'>
                         <Link to='/About'>About</Link>
                     </li>
-                    <li className='NavTop__link'>
-                        <Link to='/SignUp'>Sign-up</Link>
-                    </li>
-                    <li className='NavTop__link'>
-                        <Link to='/Login'>Login</Link>
-                    </li>
-                    <li className='NavTop__link'>
-                        <Link to='/Logout'>Logout</Link>
-                    </li>
+                    {TokenServices.hasToken()
+                        ? null
+                        : <li className='NavTop__link'>
+                            <Link to='/SignUp'>Sign-up</Link>
+                            </li>
+                    }
+                    
+                    {TokenServices.hasToken()
+                        ? null
+                        : <li className='NavTop__link'>
+                            <Link to='/Login'>Login</Link>
+                            </li>
+                    }
+
+                    {TokenServices.hasToken()
+                        ? <li className='NavTop__link'>
+                            <Link to='/Logout'>Logout</Link>
+                            </li>
+                        : null
+                    }
+
                 </ul>
             </nav>
         )
