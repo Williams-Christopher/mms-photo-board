@@ -12,9 +12,27 @@ const ApiServices = {
             });
     },
 
-    // log a user in
-    postAuth() {
+    // create a new user
+    postUser() {
 
+    },
+
+    // log a user in
+    postAuth(loginUser) {
+        return fetch(`${API_BASE_URL}/auth`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(loginUser)
+        })
+        .then(response => {
+            if(!response.ok) {
+                return response.json().then(error => Promise.reject(error))
+            }
+
+            return response.json();
+        });
     },
 
     // toggle like
