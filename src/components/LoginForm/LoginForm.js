@@ -11,6 +11,10 @@ class SignInForm extends React.Component {
         this.user_password = React.createRef();
     }
 
+    componentWillUpdate() {
+        this.user_name.current.focus();
+    }
+
     handleSubmitLogin = event => {
         event.preventDefault();
         this.setState({error: null});
