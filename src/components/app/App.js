@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import ApiServices from '../../services/api-service';
+import TokenServices from '../../services/token-services';
 import { Error } from '../../services/utils';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
@@ -43,27 +44,38 @@ class App extends React.Component {
           <Error error={this.state.error} />
           <AppContext.Provider value={contextValue}>
           <Switch>
+            
             <Route
               exact
               path='/'
-              render={props => <MediaPage {...props} media={staticTestData.media}
+              // render={props => <MediaPage {...props} media={staticTestData.media}
+              component={MediaPage}
               />}
             />
+            
             <Route
               path='/About'
               component={AboutPage}
             />
+            
             <Route
               path='/Login'
               component={LoginPage}
             />
+            
             <Route
               path='/SignUp'
-              component={RegisterPage}
+              render={componentProps => (
+                TokenServices.hasToken()
+                ? <Redirect to={'/'} />
+                : <RegisterPage {...componentProps}/>
+              )}
             />
+            
             <Route
               component={FourOhFourPage}
             />
+          
           </Switch>
           </AppContext.Provider>
         </main>
