@@ -13,7 +13,7 @@ function Footer(props) {
                     <FontAwesomeIcon icon={['fab', 'github']} />
                     Github
             </a>
-            <a href='mailto:cw@chriswillia.ms'>
+            <a href='mailto:MMSPhotoBoard@chriswillia.ms'>
                     <FontAwesomeIcon icon={'at'} />
                     Email
             </a>

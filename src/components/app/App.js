@@ -34,22 +34,28 @@ class App extends React.Component {
     this.setState({isLoggedIn: TokenServices.hasToken()});
   }
 
+  updateLikeCount = (mediaId, newLikeCount) => {
+    const targetMedia = this.state.media.find(item => item.id === mediaId);
+    targetMedia.likes = newLikeCount;
+    this.setState({media: [...this.state.media], targetMedia})
+  }
+
   render() {
     const contextValue = {
       media: this.state.media,
       isLoggedIn: this.state.isLoggedIn,
       setLoginState: this.setLoginStateValue,
+      updateLikeCount: this.updateLikeCount,
     };
 
     return (
       <>
-
         {/* <header className='App'>
         </header> */}
         <main role="main">
-          <Error error={this.state.error} />
           <AppContext.Provider value={contextValue}>
           <Navigation isLoggedIn={this.state.isLoggedIn} />
+          <Error error={this.state.error} />
           <Switch>
             
             <Route

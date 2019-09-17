@@ -5,7 +5,7 @@ const AppContext = React.createContext ({
     media: [],
     isLoggedIn: null,
     setLoginState: () => {},
-    toggleLike: () => {},
+    updateLikeCount: () => {},
 });
 
 export default AppContext;
