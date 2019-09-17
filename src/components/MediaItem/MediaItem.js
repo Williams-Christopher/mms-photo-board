@@ -2,12 +2,33 @@ import React from 'react';
 import AppContext from '../../context/AppContext';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import './MediaItem.css';
+import ApiServices from '../../services/api-service';
 
 class MediaItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            likes: null,
+            fetchComplete: false,
+        };
+    }
     static contextType = AppContext;
 
-    likeClick = mediaId => {
-        console.log('mediaId: ', mediaId);
+    componentDidMount() {
+        this.setState({
+            likes: this.props.likes
+        })
+    }
+
+    likeClickHandler = mediaId => {
+        this.setState({error: null});
+        ApiServices.postMedia(mediaId)
+            .then(newLikeCount =>{
+                console.log(newLikeCount);
+                this.setState({likes: newLikeCount.newLikes})
+            })
+            .catch(error => this.setState({error}))
     }
 
     render() {
@@ -18,11 +39,12 @@ class MediaItem extends React.Component {
                 <div className='MediaItem__footer'>
                     <p className='MediaItem__likes_text'>
                         {this.context.isLoggedIn
-                            ? <FontAwesomeIcon icon={'thumbs-up'} style={{color: 'blue'}} onClick={() => this.likeClick(this.props.id)} />
+                            ? <FontAwesomeIcon icon={'thumbs-up'} style={{color: 'blue'}} onClick={() => this.likeClickHandler(this.props.id)} />
                             : <FontAwesomeIcon icon={'thumbs-up'} style={{color: 'grey'}} onClick={() => alert('You must be signed in to do this.')} />
                         }
-                        {this.props.likes !== 0
-                            ? <span className='MediaItem__likes_count'>{this.props.likes}</span>
+                        {console.log(this.state)}
+                        {(this.state.likes || this.props.likes) !== 0
+                            ? <span className='MediaItem__likes_count'>{this.state.likes || this.props.likes}</span>
                             : null
                         }
                     </p>

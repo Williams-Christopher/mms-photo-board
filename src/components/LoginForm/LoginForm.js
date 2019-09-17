@@ -29,7 +29,7 @@ class SignInForm extends React.Component {
 
         ApiServices.postAuth(loginUser)
             .then(token => {
-                TokenServices.insertToken(token);
+                TokenServices.insertToken(token.authToken);
                 this.props.redirectOnLoginSuccess();
             })
             .catch(error => {
