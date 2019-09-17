@@ -11,11 +11,13 @@ class Navigation extends React.Component {
         console.log('handleLogout');
         TokenServices.removeToken();
         console.log('removed token, calling setLoginState');
+        console.log(this.context);
         this.context.setLoginState();
         console.log('Should have called context.setLoginState()');
     }
 
     render() {
+        console.log(this.props)
         return (
             <nav role="navigation" className='NavTop'>
                 <h1 className='NavTop__title'>

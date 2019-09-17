@@ -31,9 +31,7 @@ class App extends React.Component {
   }
 
   setLoginStateValue = () => {
-    console.log('setLoginSateValue');
     this.setState({isLoggedIn: TokenServices.hasToken()});
-    console.log('after setState');
   }
 
   render() {
@@ -45,12 +43,13 @@ class App extends React.Component {
 
     return (
       <>
-        <Navigation isLoggedIn={this.state.isLoggedIn} />
+
         {/* <header className='App'>
         </header> */}
         <main role="main">
           <Error error={this.state.error} />
           <AppContext.Provider value={contextValue}>
+          <Navigation isLoggedIn={this.state.isLoggedIn} />
           <Switch>
             
             <Route
