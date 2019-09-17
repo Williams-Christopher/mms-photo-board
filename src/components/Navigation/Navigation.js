@@ -1,8 +1,20 @@
 import React from 'react';
+import AppContext from '../../context/AppContext';
+import TokenServices from '../../services/token-services';
 import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 class Navigation extends React.Component {
+    static contextType = AppContext;
+
+    handleLogout = () => {
+        console.log('handleLogout');
+        TokenServices.removeToken();
+        console.log('removed token, calling setLoginState');
+        this.context.setLoginState();
+        console.log('Should have called context.setLoginState()');
+    }
+
     render() {
         return (
             <nav role="navigation" className='NavTop'>
@@ -15,27 +27,26 @@ class Navigation extends React.Component {
                     <li className='NavTop__link'>
                         <Link to='/About'>About</Link>
                     </li>
-                    {this.props.loggedIn
+                    {this.props.isLoggedIn
                         ? null
                         : <li className='NavTop__link'>
                             <Link to='/SignUp'>Sign-up</Link>
                             </li>
                     }
                     
-                    {this.props.loggedIn
+                    {this.props.isLoggedIn
                         ? null
                         : <li className='NavTop__link'>
                             <Link to='/Login'>Login</Link>
                             </li>
                     }
 
-                    {this.props.loggedIn
+                    {this.props.isLoggedIn
                         ? <li className='NavTop__link'>
-                            <Link to='/Logout'>Logout</Link>
+                            <Link onClick={this.handleLogout} to='/'>Logout</Link>
                             </li>
                         : null
                     }
-
                 </ul>
             </nav>
         )

@@ -1,8 +1,15 @@
 import React from 'react';
+import AppContext from '../../context/AppContext';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import './MediaItem.css';
 
 class MediaItem extends React.Component {
+    static contextType = AppContext;
+
+    likeClick = mediaId => {
+        console.log('mediaId: ', mediaId);
+    }
+
     render() {
         return (
             <div className='MediaItem'>
@@ -10,7 +17,10 @@ class MediaItem extends React.Component {
                 <p className='MediaItem__caption'><em>{this.props.media_caption}</em></p>
                 <div className='MediaItem__footer'>
                     <p className='MediaItem__likes_text'>
-                        <FontAwesomeIcon icon={'thumbs-up'} style={{color: 'blue'}}/>
+                        {this.context.isLoggedIn
+                            ? <FontAwesomeIcon icon={'thumbs-up'} style={{color: 'blue'}} onClick={() => this.likeClick(this.props.id)} />
+                            : <FontAwesomeIcon icon={'thumbs-up'} style={{color: 'grey'}} onClick={() => alert('You must be signed in to do this.')} />
+                        }
                         {this.props.likes !== 0
                             ? <span className='MediaItem__likes_count'>{this.props.likes}</span>
                             : null

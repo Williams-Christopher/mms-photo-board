@@ -17,12 +17,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       media: [],
-      loggedIn: false,
+      isLoggedIn: false,
     }
   }
 
   componentDidMount() {
-    this.setState({loggedIn: TokenServices.hasToken()});
+    this.setState({isLoggedIn: TokenServices.hasToken()});
     ApiServices.getMedia()
       .then(jsonMedia => {
         this.setState({media: jsonMedia});
@@ -31,18 +31,21 @@ class App extends React.Component {
   }
 
   setLoginStateValue = () => {
-    this.setState({loggedIn: TokenServices.hasToken()});
+    console.log('setLoginSateValue');
+    this.setState({isLoggedIn: TokenServices.hasToken()});
+    console.log('after setState');
   }
 
   render() {
     const contextValue = {
       media: this.state.media,
+      isLoggedIn: this.state.isLoggedIn,
       setLoginState: this.setLoginStateValue,
-    }
+    };
 
     return (
       <>
-        <Navigation loggedIn={this.state.loggedIn} />
+        <Navigation isLoggedIn={this.state.isLoggedIn} />
         {/* <header className='App'>
         </header> */}
         <main role="main">

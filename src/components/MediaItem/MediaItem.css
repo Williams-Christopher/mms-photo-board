@@ -24,6 +24,7 @@
 
 .MediaItem__likes_text {
   display: inline;
+  cursor: pointer;
 }
 
 .MediaItem__likes_count {
