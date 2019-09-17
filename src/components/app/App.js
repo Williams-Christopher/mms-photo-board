@@ -12,17 +12,17 @@ import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import MediaPage from '../../routes/MediaPage/MediaPage';
 import FourOhFourPage from '../../routes/FourOhFourPage/FourOhFourPage';
 
-import staticTestData from '../../static_test_data';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       media: [],
+      loggedIn: false,
     }
   }
 
   componentDidMount() {
+    this.setState({loggedIn: TokenServices.hasToken()});
     ApiServices.getMedia()
       .then(jsonMedia => {
         this.setState({media: jsonMedia});
@@ -30,14 +30,19 @@ class App extends React.Component {
       .catch(error => this.setState({error: error.message}));
   }
 
+  setLoginStateValue = () => {
+    this.setState({loggedIn: TokenServices.hasToken()});
+  }
+
   render() {
     const contextValue = {
       media: this.state.media,
+      setLoginState: this.setLoginStateValue,
     }
 
     return (
       <>
-        <Navigation />
+        <Navigation loggedIn={this.state.loggedIn} />
         {/* <header className='App'>
         </header> */}
         <main role="main">
