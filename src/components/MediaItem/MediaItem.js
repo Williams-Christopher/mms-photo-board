@@ -9,7 +9,6 @@ class MediaItem extends React.Component {
         super(props);
         this.state = {
             error: null,
-            likes: null,
             fetchComplete: false,
         };
     }
@@ -31,9 +30,9 @@ class MediaItem extends React.Component {
 
     likeClickHandler = mediaId => {
         this.setState({error: null});
+        
         ApiServices.postMedia(mediaId)
             .then(newLikeCount =>{
-                console.log(newLikeCount);
                 // this.setState({likes: newLikeCount.newLikes})
                 this.context.updateLikeCount(mediaId, newLikeCount.newLikes);
             })
@@ -52,7 +51,7 @@ class MediaItem extends React.Component {
                             : <FontAwesomeIcon icon={'thumbs-up'} style={{color: 'grey'}} onClick={() => alert('You must be signed in to do this.')} />
                         }
                         {console.log(this.state)}
-                        {this.props.likes !== 0
+                        {this.props.likes != 0
                             ? <span className='MediaItem__likes_count'>{this.props.likes}</span>
                             : null
                         }
