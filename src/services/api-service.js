@@ -14,8 +14,23 @@ const ApiServices = {
     },
 
     // create a new user
-    postUser() {
-
+    postUser(newUser) {
+        return fetch(`${API_BASE_URL}/users`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newUser)
+        })
+        .then(result => {
+            if(!result.ok) {
+                console.log('result found to be !ok');
+                return result.json().then(error => Promise.reject(error));
+            }
+            console.log('result found to be ok');
+            return result;
+        })
+        .catch(error => error);
     },
 
     // log a user in
