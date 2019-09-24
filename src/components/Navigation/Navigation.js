@@ -1,9 +1,23 @@
 import React from 'react';
+import AppContext from '../../context/AppContext';
+import TokenServices from '../../services/token-services';
 import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 class Navigation extends React.Component {
+    static contextType = AppContext;
+
+    handleLogout = () => {
+        console.log('handleLogout');
+        TokenServices.removeToken();
+        console.log('removed token, calling setLoginState');
+        console.log(this.context);
+        this.context.setLoginState();
+        console.log('Should have called context.setLoginState()');
+    }
+
     render() {
+        console.log(this.props)
         return (
             <nav role="navigation" className='NavTop'>
                 <h1 className='NavTop__title'>
@@ -15,15 +29,26 @@ class Navigation extends React.Component {
                     <li className='NavTop__link'>
                         <Link to='/About'>About</Link>
                     </li>
-                    <li className='NavTop__link'>
-                        <Link to='/SignUp'>Sign-up</Link>
-                    </li>
-                    <li className='NavTop__link'>
-                        <Link to='/Login'>Login</Link>
-                    </li>
-                    <li className='NavTop__link'>
-                        <Link to='/Logout'>Logout</Link>
-                    </li>
+                    {this.props.isLoggedIn
+                        ? null
+                        : <li className='NavTop__link'>
+                            <Link to='/SignUp'>Sign-up</Link>
+                            </li>
+                    }
+                    
+                    {this.props.isLoggedIn
+                        ? null
+                        : <li className='NavTop__link'>
+                            <Link to='/Login'>Login</Link>
+                            </li>
+                    }
+
+                    {this.props.isLoggedIn
+                        ? <li className='NavTop__link'>
+                            <Link onClick={this.handleLogout} to='/'>Logout</Link>
+                            </li>
+                        : null
+                    }
                 </ul>
             </nav>
         )

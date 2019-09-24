@@ -1,5 +1,9 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import AppContext from '../../context/AppContext';
+import ApiServices from '../../services/api-service';
+import TokenServices from '../../services/token-services';
+import { Error } from '../../services/utils';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 import AboutPage from '../../routes/AboutPage/AboutPage';
@@ -8,42 +12,90 @@ import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import MediaPage from '../../routes/MediaPage/MediaPage';
 import FourOhFourPage from '../../routes/FourOhFourPage/FourOhFourPage';
 
-import staticTestData from '../../static_test_data';
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      media: [],
+      isLoggedIn: false,
+    }
+  }
 
-function App() {
-  return (
-    <>
-        <Navigation />
+  componentDidMount() {
+    this.setState({isLoggedIn: TokenServices.hasToken()});
+    ApiServices.getMedia()
+      .then(jsonMedia => {
+        this.setState({media: jsonMedia});
+      })
+      .catch(error => this.setState({error: error.message}));
+  }
+
+  setLoginStateValue = () => {
+    this.setState({isLoggedIn: TokenServices.hasToken()});
+  }
+
+  updateLikeCount = (mediaId, newLikeCount) => {
+    const targetMedia = this.state.media.find(item => item.id === mediaId);
+    targetMedia.likes = newLikeCount;
+    this.setState({media: [...this.state.media], targetMedia})
+  }
+
+  render() {
+    const contextValue = {
+      media: this.state.media,
+      isLoggedIn: this.state.isLoggedIn,
+      setLoginState: this.setLoginStateValue,
+      updateLikeCount: this.updateLikeCount,
+    };
+
+    return (
+      <>
         {/* <header className='App'>
         </header> */}
         <main role="main">
+          <AppContext.Provider value={contextValue}>
+          <Navigation isLoggedIn={this.state.isLoggedIn} />
+          <Error error={this.state.error} />
           <Switch>
-            <Route 
+            
+            <Route
               exact
               path='/'
-              render={props => <MediaPage {...props} media={staticTestData.media}
+              // render={props => <MediaPage {...props} media={staticTestData.media}
+              component={MediaPage}
               />}
             />
+            
             <Route
               path='/About'
               component={AboutPage}
             />
+            
             <Route
               path='/Login'
               component={LoginPage}
             />
+            
             <Route
               path='/SignUp'
-              component={RegisterPage}
+              render={componentProps => (
+                TokenServices.hasToken()
+                ? <Redirect to={'/'} />
+                : <RegisterPage {...componentProps}/>
+              )}
             />
+            
             <Route
               component={FourOhFourPage}
             />
+          
           </Switch>
+          </AppContext.Provider>
         </main>
         <Footer />
-    </>
-  );
+      </>
+    );
+  }
 }
 
 export default App;
