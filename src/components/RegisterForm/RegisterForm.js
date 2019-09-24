@@ -45,6 +45,7 @@ class RegisterForm extends React.Component {
     isPasswordValid() {
         console.log('in password')
         const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
+        //const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&]){7}[\S]+/;
         const { password, passwordVerify } = this.state;
         // if (!passwordRegex.test(password)) return false;
         const validPassword =  (password != null && passwordVerify != null) && passwordRegex.test(password) && password === passwordVerify ? true : false;
@@ -74,11 +75,14 @@ class RegisterForm extends React.Component {
 
         ApiServices.postUser(newUser)
             .then(result => {
+                // if(!result.ok) {
+                //     return result.json().then(error => Promise.reject(error));
+                // }
                 console.log('result: ', result);
                 this.props.redirectOnSuccess();
             })
             .catch(error => {
-                this.setState({error: error.message});
+                this.setState({error: error.error});
                 console.log(error);
             })
     };
@@ -88,7 +92,7 @@ class RegisterForm extends React.Component {
             <form className='RegisterForm' onSubmit={(e) => this.handleSubmitUser(e)}>
                 <fieldset>
                 <div role='alert'>
-                    {this.state.error && <p>There was a problem creating your user. Please try again.</p>}
+                    {this.state.error && <p>{this.state.error}. Please try again.</p>}
                 </div>
                     <div className='row'>
                         <label htmlFor='first-name'>First name:</label>
@@ -100,22 +104,28 @@ class RegisterForm extends React.Component {
                     </div>
                     <div className='row'>
                         <label htmlFor='user-name'>User name:</label>
-                        <input type='text' name='userName' id='user-name' placeholder='browncoats!1' onChange={e => this.updateStateForField(e)} required />
+                        <input type='text' name='userName' id='user-name' placeholder='Your desired user name' onChange={e => this.updateStateForField(e)} required />
                     </div>
+                    {this.state.error && this.state.error.toString().includes('Password') && <div role='alert' className='row'>
+                        <p>Password must be at least 7 characters, include one or more capital and lower case letters, and one or more special characters !, @, #, $, %, ^, &amp;</p>
+                    </div>}
                     <div className='row'>
                         <label htmlFor='password'>Password:</label>
-                        <input type='password' name='password' id='password' placeholder='AGoodPassword' onChange={e => this.updateStateForField(e)} required />
+                        <input type='password' name='password' id='password' placeholder='Password#4' onChange={e => this.updateStateForField(e)} required />
                     </div>
                     <div className='row'>
                         <label htmlFor='verify-password'>Verify password:</label>
-                        <input type='password' name='passwordVerify' id='verify-password' placeholder='AGoodPassword' onChange={e => this.updateStateForField(e)} required />
+                        <input type='password' name='passwordVerify' id='verify-password' placeholder='Verify Password' onChange={e => this.updateStateForField(e)} required />
                     </div>
+                    {this.state.error && this.state.error === 'Verification message could not be sent' && <div role='alert' className='row'>
+                        <p>Phone number must be in the U.S. or Canada. Enter only the area code and phone number with no dashes, e.g. 5551230987</p>
+                    </div>}
                     <div className='row'>
-                        <label htmlFor='phone'>Phone number:</label>
+                        <label htmlFor='phone'>Cell phone:</label>
                         <input type='tel' name='phone' id='phone' placeholder='5551230987' onChange={e => this.updateStateForField(e)} required />
                     </div>
                     <div className='row'>
-                        <label htmlFor='verify-phone'>Phone number:</label>
+                        <label htmlFor='verify-phone'>Verify phone:</label>
                         <input type='tel' name='phoneVerify' id='verify-phone' placeholder='5551230987' onChange={e => this.updateStateForField(e)} required />
                     </div>
                     <button type='submit' disabled={!this.state.isUserValid}>Register</button>

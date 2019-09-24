@@ -6,9 +6,9 @@ import './RegisterPage.css';
 
 class RegisterPage extends React.Component {
 
-    redirectOnUserCreationSuccess() {
+    redirectOnUserCreationSuccess = () => {
         console.log('redirectOnUserCreationSuccess()');
-        // this.props.history.push('/');
+        this.props.history.push('/Login');
     }
 
     render() {
@@ -17,7 +17,7 @@ class RegisterPage extends React.Component {
                 <h2>Sign up for MMS Photo Board</h2>
                 <p className='RegisterPage__explainer'>
                     <em>
-                    MMS Photo Board will not abuse your phone. You will receive a text message to verify your phone number and a reply message when you send a photo. That's it. Phone numbers are stored in our database securely with a one-way hash. That means your number will never be able to be shared.
+                    MMS Photo Board will not abuse your phone. You will receive a text message to verify your phone number and a reply to messages you send. That's it. Phone numbers are stored securely like a password so they are not readable.
                     </em>
                 </p>
                 <RegisterForm redirectOnSuccess={this.redirectOnUserCreationSuccess} />
