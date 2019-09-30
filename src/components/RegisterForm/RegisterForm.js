@@ -21,9 +21,17 @@ class RegisterForm extends React.Component {
     };
 
     updateStateForField = (e) => {
+        this.setState({error: null});
+        console.log(e.target.name);
         const fieldName = e.target.name;
-        this.setState({[fieldName]: e.target.value}, () => this.isUserValid());
+        //this.setState({[fieldName]: e.target.value}, () => this.isUserValid());
         // this.isUserValid();
+        this.setState({[fieldName]: e.target.value}, this.setStateCallback);
+    };
+
+    handleUserNameInput = (e) => {
+        this.updateStateForField(e);
+        console.log('user name input lost focus');
     };
 
     isUserValid() {
@@ -61,6 +69,14 @@ class RegisterForm extends React.Component {
         return validPhone;
     };
 
+    lostFocus = (e) => {
+        console.log('field lost focus');
+    }
+
+    setStateCallback() {
+        console.log('SetState done?');
+    }
+
     handleSubmitUser = (e) => {
         e.preventDefault();
         this.setState({error: null});
@@ -96,7 +112,7 @@ class RegisterForm extends React.Component {
                 </div>
                     <div className='row'>
                         <label htmlFor='first-name'>First name:</label>
-                        <input type='text' name='firstName' id='first-name' placeholder='Malcom' onChange={e => this.updateStateForField(e)} required />
+                        <input type='text' name='firstName' id='first-name' placeholder='Malcom' onBlur={e => this.handleUserNameInput(e)} required />
                     </div>
                     <div className='row'>
                         <label htmlFor='last-name'>Last name:</label>
