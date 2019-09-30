@@ -9,7 +9,7 @@ class About extends React.Component {
 
     render() {
         return (
-            <>
+            <section className='About'>
                 <div className='About__top'>
                     <article>
                         <p>
@@ -27,7 +27,7 @@ class About extends React.Component {
                     </article>
                 </div>
                 <Link to='/SignUp'>Sign up now</Link>
-            </>
+            </section>
         );
     };
 };
