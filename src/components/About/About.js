@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import './About.css';
 
 class About extends React.Component {
-    buttonClick() {
-        console.log('click!');
-    }
-
     render() {
         return (
             <section className='About'>

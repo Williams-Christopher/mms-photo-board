@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import LoginForm from '../../components/LoginForm/LoginForm';
-// import Navigation from '../../components/Navigation/Navigation';
 import './LoginPage.css';
 
 

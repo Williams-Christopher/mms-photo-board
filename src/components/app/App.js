@@ -50,8 +50,6 @@ class App extends React.Component {
 
     return (
       <>
-        {/* <header className='App'>
-        </header> */}
         <main role="main">
           <AppContext.Provider value={contextValue}>
           <Navigation isLoggedIn={this.state.isLoggedIn} />
@@ -61,7 +59,6 @@ class App extends React.Component {
             <Route
               exact
               path='/'
-              // render={props => <MediaPage {...props} media={staticTestData.media}
               component={MediaPage}
               />}
             />

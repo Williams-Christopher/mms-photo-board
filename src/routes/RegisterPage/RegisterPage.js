@@ -7,7 +7,6 @@ import './RegisterPage.css';
 class RegisterPage extends React.Component {
 
     redirectOnUserCreationSuccess = () => {
-        console.log('redirectOnUserCreationSuccess()');
         this.props.history.push('/Login');
     }
 

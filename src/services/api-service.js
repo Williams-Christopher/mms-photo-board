@@ -24,14 +24,10 @@ const ApiServices = {
         })
         .then(result => {
             if(!result.ok) {
-                console.log('result found to be NOT ok');
                 return result.json().then(error => Promise.reject(error));
             }
-            console.log('result found to be ok');
-            console.log(result)
             return result;
         })
-        // .catch(error => error);
     },
 
     // log a user in

@@ -4,7 +4,7 @@ import './Footer.css';
 
 function Footer(props) {
     return (
-        <footer role='content-info' className='Footer'>
+        <footer role='contentinfo' className='Footer'>
  
             <p>Created in Austin, Texas by Christopher Williams</p>
 
