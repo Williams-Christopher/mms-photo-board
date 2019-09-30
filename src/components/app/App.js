@@ -6,7 +6,7 @@ import TokenServices from '../../services/token-services';
 import { Error } from '../../services/utils';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
-import AboutPage from '../../routes/AboutPage/AboutPage';
+import About from '../../components/About/About';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import MediaPage from '../../routes/MediaPage/MediaPage';
@@ -68,7 +68,7 @@ class App extends React.Component {
             
             <Route
               path='/About'
-              component={AboutPage}
+              component={About}
             />
             
             <Route
