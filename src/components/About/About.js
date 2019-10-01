@@ -18,7 +18,7 @@ class About extends React.Component {
                     <img src='https://picsum.photos/300' alt='More placeholder text' />
                     <article>
                         <p>
-                            That's why MMS Photo Board is here. Share what's interesting without distraction. Using simple text messages, send a photo and, optionally, a text caption along with it, just like you'd text a photo to a friend. MMS Photo Board gets your message, posts it, and sends you back a link to your post. If you want, share that link later on another site. Come back to MMS Photo Board and see what others have shared and like what you find interesting.
+                            That's why MMS Photo Board is here. Share what's interesting without distraction. Using simple text messages, send a photo and, optionally, a text caption along with it, just like you'd text a photo to a friend. MMS Photo Board gets your message and posts it. Come back to MMS Photo Board to see what others have shared and like what you find interesting.
                         </p>
                     </article>
                 </div>
