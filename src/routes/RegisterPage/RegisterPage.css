@@ -1,3 +1,9 @@
 .RegisterPage h2, .RegisterPage p {
+    margin: 10px;
     text-align: center;
+}
+
+.RegisterPage p {
+    font-style: oblique;
+    line-height: 1.25em;
 }
