@@ -19,17 +19,7 @@ class RegisterForm extends React.Component {
         };
     };
 
-    updateStateForField = (e) => {
-        //this.setState({error: null});
-        console.log(e.target.name);
-        const fieldName = e.target.name;
-        //this.setState({[fieldName]: e.target.value}, () => this.isUserValid());
-        // this.isUserValid();
-        this.setState({ [fieldName]: e.target.value }, this.setStateCallback);
-    };
-
     handleFirstNameInput = (e) => {
-        console.log('handleFirstNameInput');
         this.setState({
             errorFirstName: null,
             errorServer: null,
@@ -44,15 +34,12 @@ class RegisterForm extends React.Component {
     };
 
     isFirstNameValid() {
-        console.log('checking first name')
-        console.log('firstName: ', this.state.firstName == null || !(this.state.firstName.length >= 1));
         if (this.state.firstName == null || !this.state.firstName.length >= 1) {
             return 'Must be at least one character';
         }
     };
 
     handleUserNameInput = (e) => {
-        console.log('handleUserNameInput');
         this.setState({
             errorUserName: null,
             errorServer: null,
@@ -67,14 +54,13 @@ class RegisterForm extends React.Component {
     };
 
     isUserNameValid() {
-        console.log('userName: ', !(this.state.userName.length >= 3));
         if (this.state.userName == null || !(this.state.userName.length >= 3)) {
             return 'Must be three or more characters';
         }
     };
 
     handlePasswordInput = (e) => {
-        console.log('handlePasswordInput');
+
         this.setState({
             errorPassword: null,
             errorServer: null,
@@ -89,7 +75,6 @@ class RegisterForm extends React.Component {
     };
 
     isPasswordValid() {
-        console.log('isPasswordValid');
         const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])(?=.{7,})[\S]+/;
         if (!passwordRegex.test(this.state.password)) {
             return 'Must be at least 7 characters, contain a capital letter, special character, and a number'
@@ -97,7 +82,6 @@ class RegisterForm extends React.Component {
     };
 
     handlePasswordVerifyInput = (e) => {
-        console.log('handlePasswordVerifyInput');
         this.setState({
             errorPasswordVerify: null,
             errorServer: null,
@@ -118,7 +102,6 @@ class RegisterForm extends React.Component {
     }
 
     handlePhoneInput = (e) => {
-        console.log('handlePhoneInput');
         this.setState({
             errorPhone: null,
             errorServer: null,
@@ -141,7 +124,6 @@ class RegisterForm extends React.Component {
     }
 
     handlePhoneVerifyInput = (e) => {
-        console.log('handlePhoneVerifyInput');
         this.setState({
             errorPhoneVerify: null,
             errorServer: null,
@@ -159,19 +141,6 @@ class RegisterForm extends React.Component {
         if(!this.state.errorPhone && this.state.phone !== this.state.phoneVerify) {
             return 'Phone numbers must match'
         }
-    }
-
-    lostFocus = (e) => {
-        console.log('field lost focus');
-    }
-
-    setStateCallback() {
-        console.log('SetState done?');
-    }
-
-    clearError() {
-        console.log('clearError()');
-        this.setState({ error: null });
     }
 
     isUserValid() {
