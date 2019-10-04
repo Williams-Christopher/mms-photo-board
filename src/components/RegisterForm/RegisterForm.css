@@ -22,6 +22,13 @@
     margin: 0 auto;
 }
 
+.RegisterForm__error {
+    display: block;
+    color: red;
+    font-style: italic;
+    font-size: smaller;
+}
+
 @media screen and (min-width: 450px) {
     .RegisterForm .row input {
         width: 150px;

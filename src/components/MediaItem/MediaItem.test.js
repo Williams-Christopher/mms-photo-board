@@ -23,7 +23,7 @@ const history = {
     }
 };
 
-const media = [
+const testMedia = [
   {
       id: 1,
       url: "https://picsum.photos/400",
@@ -39,7 +39,7 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <BrowserRouter>
         <Router history={history}>
-            <MediaItem {...media[0]}/>
+            <MediaItem {...testMedia[0]}/>
         </Router>
     </BrowserRouter>
     , div);

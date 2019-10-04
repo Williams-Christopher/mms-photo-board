@@ -1,3 +1,8 @@
 .LoginPage h2, .LoginPage p {
     text-align: center;
 }
+
+.LoginPage .demo_explainer {
+    font-style: oblique;
+    line-height: 1.25em;
+}

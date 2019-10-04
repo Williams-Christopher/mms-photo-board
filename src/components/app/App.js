@@ -6,7 +6,7 @@ import TokenServices from '../../services/token-services';
 import { Error } from '../../services/utils';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
-import AboutPage from '../../routes/AboutPage/AboutPage';
+import About from '../../components/About/About';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import MediaPage from '../../routes/MediaPage/MediaPage';
@@ -50,8 +50,6 @@ class App extends React.Component {
 
     return (
       <>
-        {/* <header className='App'>
-        </header> */}
         <main role="main">
           <AppContext.Provider value={contextValue}>
           <Navigation isLoggedIn={this.state.isLoggedIn} />
@@ -61,14 +59,13 @@ class App extends React.Component {
             <Route
               exact
               path='/'
-              // render={props => <MediaPage {...props} media={staticTestData.media}
               component={MediaPage}
               />}
             />
             
             <Route
               path='/About'
-              component={AboutPage}
+              component={About}
             />
             
             <Route

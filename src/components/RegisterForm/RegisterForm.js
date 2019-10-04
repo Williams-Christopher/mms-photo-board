@@ -6,13 +6,12 @@ class RegisterForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            error: null,
-            firstName: null,
-            lastName: null,
-            userName: null,
-            password: null,
-            passwordVerify: null,
-            isPasswordMatching: false,
+            errorServer: null,
+            firstName: '',
+            lastName: '',
+            userName: '',
+            password: '',
+            passwordVerify: '',
             phone: null,
             phoneVerify: null,
             isPhoneMatching: false,
@@ -20,51 +19,153 @@ class RegisterForm extends React.Component {
         };
     };
 
-    updateStateForField = (e) => {
-        const fieldName = e.target.name;
-        this.setState({[fieldName]: e.target.value}, () => this.isUserValid());
-        // this.isUserValid();
-    };
-
-    isUserValid() {
-        const validUser = this.isFirstNameValid() && this.isUserNameValid() && this.isPasswordValid() && this.isPhoneValid();
-        console.log('User valid? ', validUser)
-        this.setState({isUserValid: validUser});
+    handleFirstNameInput = (e) => {
+        this.setState({
+            errorFirstName: null,
+            errorServer: null,
+            firstName: e.target.value.trim()
+        }, () => {
+            const error = this.isFirstNameValid();
+            if (error) {
+                this.setState({ errorFirstName: error });
+            }
+            this.isUserValid();
+        });
     };
 
     isFirstNameValid() {
-        console.log('first name')
-        return this.state.firstName != null && this.state.firstName.length > 1 ? true : false;
+        if (this.state.firstName == null || !this.state.firstName.length >= 1) {
+            return 'Must be at least one character';
+        }
+    };
+
+    handleUserNameInput = (e) => {
+        this.setState({
+            errorUserName: null,
+            errorServer: null,
+            userName: e.target.value.trim()
+        }, () => {
+            const error = this.isUserNameValid();
+            if (error) {
+                this.setState({ errorUserName: error });
+            }
+            this.isUserValid();
+        });
     };
 
     isUserNameValid() {
-        console.log('name')
-        return this.state.userName != null && this.state.userName.length > 3 ? true : false;
+        if (this.state.userName == null || !(this.state.userName.length >= 3)) {
+            return 'Must be three or more characters';
+        }
+    };
+
+    handlePasswordInput = (e) => {
+
+        this.setState({
+            errorPassword: null,
+            errorServer: null,
+            password: e.target.value
+        }, () => {
+            let error = this.isPasswordValid();
+            if (error) {
+                this.setState({ errorPassword: error });
+            }
+            this.isUserValid();
+        });
     };
 
     isPasswordValid() {
-        console.log('in password')
-        const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
-        //const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&]){7}[\S]+/;
-        const { password, passwordVerify } = this.state;
-        // if (!passwordRegex.test(password)) return false;
-        const validPassword =  (password != null && passwordVerify != null) && passwordRegex.test(password) && password === passwordVerify ? true : false;
-        console.log('validPasswordL ', validPassword);
-        return validPassword;
+        const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])(?=.{7,})[\S]+/;
+        if (!passwordRegex.test(this.state.password)) {
+            return 'Must be at least 7 characters, contain a capital letter, special character, and a number'
+        }
+    };
+
+    handlePasswordVerifyInput = (e) => {
+        this.setState({
+            errorPasswordVerify: null,
+            errorServer: null,
+            passwordVerify: e.target.value.trim(),
+        }, () => {
+            const error = this.isPasswordVerifyValid();
+            if (error) {
+                this.setState({ errorPasswordVerify: error });
+            }
+            this.isUserValid();
+        });
+    };
+
+    isPasswordVerifyValid() {
+        if(!this.state.errorPassword && this.state.password !== this.state.passwordVerify) {
+            return 'Passwords must match';
+        }
+    }
+
+    handlePhoneInput = (e) => {
+        this.setState({
+            errorPhone: null,
+            errorServer: null,
+            phone: e.target.value.trim(),
+        }, () => {
+            const error = this.isPhoneValid();
+            if(error) {
+                this.setState({errorPhone: error});
+            }
+            this.isUserValid();
+        });
     };
 
     isPhoneValid() {
-        console.log('phone');
-        const { phone, phoneVerify } = this.state;
-        const validPhone = (phone != null && phoneVerify != null) && (phone.length === 10) && (isNaN(parseInt(phone)) === false) && (phoneVerify === phone) ? true : false;
-        console.log('validPhone: ', validPhone);
-        return validPhone;
+        if(isNaN(this.state.phone)) {
+            return 'Must contain only numbers';
+        } else if(this.state.phone.length !== 10) {
+            return 'Must be in the format 5551116666'
+        }
+    }
+
+    handlePhoneVerifyInput = (e) => {
+        this.setState({
+            errorPhoneVerify: null,
+            errorServer: null,
+            phoneVerify: e.target.value.trim(),
+        }, () => {
+            const error = this.isPhoneVerifyValid();
+            if(error) {
+                this.setState({errorPhoneVerify: error});
+            }
+            this.isUserValid();
+        });
+    };
+
+    isPhoneVerifyValid() {
+        if(!this.state.errorPhone && this.state.phone !== this.state.phoneVerify) {
+            return 'Phone numbers must match'
+        }
+    }
+
+    isUserValid() {
+        this.setState({
+            isUserValid:
+                (
+                    this.state.errorFirstName === null &&
+                    this.state.errorUserName === null &&
+                    this.state.errorPassword === null &&
+                    this.state.errorPasswordVerify === null &&
+                    this.state.errorPhone === null &&
+                    this.state.errorPhoneVerify === null &&
+                    this.state.errorServer === null &&
+                    this.state.firstName !== '' &&
+                    this.state.userName !== '' &&
+                    this.state.password !== '' &&
+                    this.state.phone !== ''
+                ),
+        });
     };
 
     handleSubmitUser = (e) => {
         e.preventDefault();
-        this.setState({error: null});
-        
+        this.setState({ errorServer: null });
+
         const newUser = {
             user_first_name: this.state.firstName,
             user_last_name: this.state.lastName,
@@ -75,59 +176,69 @@ class RegisterForm extends React.Component {
 
         ApiServices.postUser(newUser)
             .then(result => {
-                // if(!result.ok) {
-                //     return result.json().then(error => Promise.reject(error));
-                // }
                 console.log('result: ', result);
                 this.props.redirectOnSuccess();
             })
             .catch(error => {
-                this.setState({error: error.error});
+                if(error.error.includes)
+                this.setState({ errorServer: error.error });
                 console.log(error);
             })
     };
 
     render() {
-        return(
+        return (
             <form className='RegisterForm' onSubmit={(e) => this.handleSubmitUser(e)}>
                 <fieldset>
-                <div role='alert'>
-                    {this.state.error && <p>{this.state.error}. Please try again.</p>}
-                </div>
+                    <div role='alert'>
+                        {this.state.errorServer && <p>{this.state.errorServer}.</p>}
+                    </div>
                     <div className='row'>
                         <label htmlFor='first-name'>First name:</label>
-                        <input type='text' name='firstName' id='first-name' placeholder='Malcom' onChange={e => this.updateStateForField(e)} required />
+                        <span className='RegisterForm__error'>{this.state.errorFirstName ? this.state.errorFirstName : null}</span>
+                        <input type='text' name='firstName' id='first-name' placeholder='One or more characters' onBlur={e => this.handleFirstNameInput(e)} required />
                     </div>
-                    <div className='row'>
-                        <label htmlFor='last-name'>Last name:</label>
-                        <input type='text' name='lastName' id='last-name' placeholder='Reynolds' onChange={e => this.updateStateForField(e)} />
-                    </div>
+
                     <div className='row'>
                         <label htmlFor='user-name'>User name:</label>
-                        <input type='text' name='userName' id='user-name' placeholder='Your desired user name' onChange={e => this.updateStateForField(e)} required />
+                        <span className='RegisterForm__error'>
+                            {this.state.errorServer && this.state.errorServer === 'User name is in use' && 'User name is taken. Please try another.'}
+                            {this.state.errorUserName ? this.state.errorUserName : null}
+                        </span>
+                        <input type='text' name='userName' id='user-name' placeholder='Three or more characters' onBlur={e => this.handleUserNameInput(e)} required />
                     </div>
-                    {this.state.error && this.state.error.toString().includes('Password') && <div role='alert' className='row'>
-                        <p>Password must be at least 7 characters, include one or more capital and lower case letters, and one or more special characters !, @, #, $, %, ^, &amp;</p>
-                    </div>}
+
                     <div className='row'>
                         <label htmlFor='password'>Password:</label>
-                        <input type='password' name='password' id='password' placeholder='Password#4' onChange={e => this.updateStateForField(e)} required />
+                        <span className='RegisterForm__error'>{this.state.errorPassword ? this.state.errorPassword : null}</span>
+                        <input type='password' name='password' id='password' placeholder='Use a strong password! e.g. Photo$7' onBlur={e => this.handlePasswordInput(e)} required />
                     </div>
+
                     <div className='row'>
                         <label htmlFor='verify-password'>Verify password:</label>
-                        <input type='password' name='passwordVerify' id='verify-password' placeholder='Verify Password' onChange={e => this.updateStateForField(e)} required />
+                        <span className='RegisterForm__error'>{this.state.errorPasswordVerify && !this.state.errorPassword ? this.state.errorPasswordVerify : null}</span>
+                        <input type='password' name='passwordVerify' id='verify-password' placeholder='Verify Password' onBlur={e => this.handlePasswordVerifyInput(e)} required />
                     </div>
-                    {this.state.error && this.state.error === 'Verification message could not be sent' && <div role='alert' className='row'>
-                        <p>Phone number must be in the U.S. or Canada. Enter only the area code and phone number with no dashes, e.g. 5551230987</p>
-                    </div>}
+
+
                     <div className='row'>
                         <label htmlFor='phone'>Cell phone:</label>
-                        <input type='tel' name='phone' id='phone' placeholder='5551230987' onChange={e => this.updateStateForField(e)} required />
+                        <span className='RegisterForm__error'>
+                            {this.state.errorServer && this.state.errorServer === 'Verification message could not be sent' && <div role='alert' className='RegisterForm__error'>
+                            <p>U.S. and Canadian phone numbers only at this time. Enter only the area code and phone number with no dashes, e.g. 5551230987</p>
+                            </div>}
+                            {this.state.errorPhone ? this.state.errorPhone : null}
+                        </span>
+
+                        <input type='tel' name='phone' id='phone' placeholder='Use the format 5551118888' onBlur={e => this.handlePhoneInput(e)} required />
                     </div>
+
                     <div className='row'>
                         <label htmlFor='verify-phone'>Verify phone:</label>
-                        <input type='tel' name='phoneVerify' id='verify-phone' placeholder='5551230987' onChange={e => this.updateStateForField(e)} required />
+                        <span className='RegisterForm__error'>{this.state.errorPhoneVerify && !this.state.errorPhone ? this.state.errorPhoneVerify : null}</span>
+                        <input type='tel' name='phoneVerify' id='verify-phone' placeholder='Re-enter your phone number' onBlur={e => this.handlePhoneVerifyInput(e)} required />
                     </div>
+
                     <button type='submit' disabled={!this.state.isUserValid}>Register</button>
                 </fieldset>
             </form>
