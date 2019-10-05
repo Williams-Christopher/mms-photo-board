@@ -1,4 +1,7 @@
 .NavTop {
+    background-color: #9192D6;
+    color: #00014F;
+    box-shadow: 0 0 10px 0 grey;
     display: flex;
     justify-content: flex-end;
     align-items: center;
