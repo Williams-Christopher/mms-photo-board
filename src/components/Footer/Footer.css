@@ -1,15 +1,22 @@
 .Footer {
-    margin: 10px 0;
+    font-family: "Architects Daughter", sans-serif;
+    background-color: #9192D6;
+    color: #D6EEF2;
+    box-shadow: 0 0 10px 0 grey;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: baseline;
+    align-items: center;
 }
 
 .Footer p {
     display: inline;
+    margin: 5px;
 }
 
 .Footer a {
+    cursor: pointer;
+    color: #D6EEF2;
     text-decoration: none;
+    margin: 5px;
 }

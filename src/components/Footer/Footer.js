@@ -7,10 +7,8 @@ function Footer(props) {
         <footer role='contentinfo' className='Footer'>
  
             <p>Created in Austin, Texas by Christopher Williams</p>
-
             <a href='mailto:MMSPhotoBoard@chriswillia.ms'>
-                    <FontAwesomeIcon icon={'at'} />
-                    Email
+                <FontAwesomeIcon icon={'envelope'} />
             </a>
 
         </footer>

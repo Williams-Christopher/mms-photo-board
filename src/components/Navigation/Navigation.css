@@ -1,35 +1,60 @@
 .NavTop {
+    font-family: "Architects Daughter", sans-serif;
     background-color: #9192D6;
-    color: #00014F;
     box-shadow: 0 0 10px 0 grey;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
 .NavTop__title {
-    display: inline;
-    margin: 0 auto 0 5%;
+    /* display: inline; */
+    margin: 0 10px;
 }
 
 .NavTop__title a {
     text-decoration: none;
+    cursor: pointer;
+    color: #D6EEF2;
 }
 
 .NavTop__links {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     list-style: none;
-    margin: 0 5% 0 auto;
+    margin: 0 10px 0 auto;
     padding: 0;
 }
 
 .NavTop__link a {
-    display: inline;
+    display: inline-block;
     text-decoration: none;
-    margin: 0 5px;
+    margin: 4px 10px;
+    cursor: pointer;
+    color: #D6EEF2;
 }
 
-.NavTop__link a:hover {
-    text-decoration: underline;
+@media (min-width: 450px) {
+    .NavTop {
+        min-height: 75px;
+        font-size: 1.25rem;
+    }
+
+    .NavTop__links {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        list-style: none;
+        margin: 0 10px 0 auto;
+        padding: 0;
+    }
+    
+    .NavTop__link a {
+        display: inline;
+        text-decoration: none;
+        margin: 0 5px;
+        cursor: pointer;
+    }
 }
