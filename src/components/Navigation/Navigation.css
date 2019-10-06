@@ -1,6 +1,6 @@
 .NavTop {
     font-family: "Architects Daughter", sans-serif;
-    background-color: #9192D6;
+    background-color: #2F496E;
     box-shadow: 0 0 10px 0 grey;
     width: 100%;
     display: flex;
@@ -16,7 +16,7 @@
 .NavTop__title a {
     text-decoration: none;
     cursor: pointer;
-    color: #D6EEF2;
+    color: #F7EFE2;
 }
 
 .NavTop__links {
@@ -33,7 +33,7 @@
     text-decoration: none;
     margin: 4px 10px;
     cursor: pointer;
-    color: #D6EEF2;
+    color: #F7EFE2;
 }
 
 @media (min-width: 450px) {

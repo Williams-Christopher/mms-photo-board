@@ -2,7 +2,8 @@
   max-width: 500px;
   margin: 25px;
   padding: 25px;
-  background-color: lightgrey;
+  background-color: #F2F4F2;
+  box-shadow: 6px 10px 25px black;
 }
 
 .MediaItem__media {

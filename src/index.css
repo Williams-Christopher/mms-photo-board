@@ -2,6 +2,7 @@ body {
   box-sizing: border-box;
   margin: 0 auto;
   width: 100%;
+  background-color: #2988BC;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
