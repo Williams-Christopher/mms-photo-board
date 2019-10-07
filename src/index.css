@@ -8,6 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* #root {
+  position: absolute;
+} */
+
 /* @media(max-width: 450px) {
   body {
     width: 100%;

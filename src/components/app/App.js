@@ -18,6 +18,7 @@ class App extends React.Component {
     this.state = {
       media: [],
       isLoggedIn: false,
+      mediaReceived: false,
     }
   }
 
@@ -25,7 +26,10 @@ class App extends React.Component {
     this.setState({isLoggedIn: TokenServices.hasToken()});
     ApiServices.getMedia()
       .then(jsonMedia => {
-        this.setState({media: jsonMedia});
+        this.setState({
+          media: jsonMedia,
+          mediaReceived: true,
+        });
       })
       .catch(error => this.setState({error: error.message}));
   }
@@ -43,6 +47,7 @@ class App extends React.Component {
   render() {
     const contextValue = {
       media: this.state.media,
+      mediaReceived: this.state.mediaReceived,
       isLoggedIn: this.state.isLoggedIn,
       setLoginState: this.setLoginStateValue,
       updateLikeCount: this.updateLikeCount,
@@ -55,7 +60,6 @@ class App extends React.Component {
           <Navigation isLoggedIn={this.state.isLoggedIn} />
           <Error error={this.state.error} />
           <Switch>
-            
             <Route
               exact
               path='/'

@@ -9,7 +9,10 @@ class MediaPage extends React.Component {
     render() {
         return (
             <section className='MediaPage'>
-              {this.context.media.map(item => <MediaItem key={item.id} {...item} />)}
+                {this.context.mediaReceived
+                    ? this.context.media.map(item => <MediaItem key={item.id} {...item} />)
+                    : <div className='MediaPage__spinner'></div>
+                }
             </section>
         );
     };
