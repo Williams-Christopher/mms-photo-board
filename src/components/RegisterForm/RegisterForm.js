@@ -195,7 +195,7 @@ class RegisterForm extends React.Component {
                     <div className='row'>
                         <label htmlFor='first-name'>First name:</label>
                         <span className='RegisterForm__error'>{this.state.errorFirstName ? this.state.errorFirstName : null}</span>
-                        <input type='text' name='firstName' id='first-name' placeholder='One or more characters' onBlur={e => this.handleFirstNameInput(e)} required />
+                        <input type='text' name='firstName' id='first-name' placeholder='One or more characters' spellCheck='off' autoCorrect='off' onBlur={e => this.handleFirstNameInput(e)} required />
                     </div>
 
                     <div className='row'>
@@ -204,19 +204,19 @@ class RegisterForm extends React.Component {
                             {this.state.errorServer && this.state.errorServer === 'User name is in use' && 'User name is taken. Please try another.'}
                             {this.state.errorUserName ? this.state.errorUserName : null}
                         </span>
-                        <input type='text' name='userName' id='user-name' placeholder='Three or more characters' onBlur={e => this.handleUserNameInput(e)} required />
+                        <input type='text' name='userName' id='user-name' placeholder='Three or more characters' spellCheck='off' autoCorrect='off' onBlur={e => this.handleUserNameInput(e)} required />
                     </div>
 
                     <div className='row'>
                         <label htmlFor='password'>Password:</label>
                         <span className='RegisterForm__error'>{this.state.errorPassword ? this.state.errorPassword : null}</span>
-                        <input type='password' name='password' id='password' placeholder='Use a strong password! e.g. Photo$7' onBlur={e => this.handlePasswordInput(e)} required />
+                        <input type='password' name='password' id='password' placeholder='Use a strong password! e.g. Photo$7' spellCheck='off' autoCorrect='off' onBlur={e => this.handlePasswordInput(e)} required />
                     </div>
 
                     <div className='row'>
                         <label htmlFor='verify-password'>Verify password:</label>
                         <span className='RegisterForm__error'>{this.state.errorPasswordVerify && !this.state.errorPassword ? this.state.errorPasswordVerify : null}</span>
-                        <input type='password' name='passwordVerify' id='verify-password' placeholder='Verify Password' onBlur={e => this.handlePasswordVerifyInput(e)} required />
+                        <input type='password' name='passwordVerify' id='verify-password' placeholder='Verify Password' spellCheck='off' autoCorrect='off' onBlur={e => this.handlePasswordVerifyInput(e)} required />
                     </div>
 
 
@@ -228,14 +228,13 @@ class RegisterForm extends React.Component {
                             </div>}
                             {this.state.errorPhone ? this.state.errorPhone : null}
                         </span>
-
-                        <input type='tel' name='phone' id='phone' placeholder='Use the format 5551118888' onBlur={e => this.handlePhoneInput(e)} required />
+                        <input type='tel' name='phone' id='phone' placeholder='Use the format 5551118888' spellCheck='off' autoCorrect='off' onBlur={e => this.handlePhoneInput(e)} required />
                     </div>
 
                     <div className='row'>
                         <label htmlFor='verify-phone'>Verify phone:</label>
                         <span className='RegisterForm__error'>{this.state.errorPhoneVerify && !this.state.errorPhone ? this.state.errorPhoneVerify : null}</span>
-                        <input type='tel' name='phoneVerify' id='verify-phone' placeholder='Re-enter your phone number' onBlur={e => this.handlePhoneVerifyInput(e)} required />
+                        <input type='tel' name='phoneVerify' id='verify-phone' placeholder='Re-enter your phone number' spellCheck='off' autoCorrect='off' onBlur={e => this.handlePhoneVerifyInput(e)} required />
                     </div>
 
                     <button type='submit' disabled={!this.state.isUserValid}>Register</button>

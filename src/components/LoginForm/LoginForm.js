@@ -46,11 +46,11 @@ class SignInForm extends React.Component {
                     </div>
                     <div className='row'>
                         <label htmlFor='user_name'>User name:</label>
-                        <input type='text' name='user_name' id='user_name' ref={this.user_name } autoFocus required />
+                        <input type='text' name='user_name' id='user_name' ref={this.user_name } autoFocus  spellCheck='off' autoCorrect='off' required />
                     </div>
                     <div className='row'>
                         <label htmlFor='user_password'>Password:</label>
-                        <input type='password' name='user_password' id='user_password' ref={this.user_password} required />
+                        <input type='password' name='user_password' id='user_password' ref={this.user_password}  spellCheck='off' autoCorrect='off' required />
                     </div>
                     <button type='submit'>Login</button>
                 </form>
