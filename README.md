@@ -28,3 +28,5 @@ This client application utilizes the following:
 ### Credits
 * favicon by [Freepik](https://www.flaticon.com/authors/freepik) on [Flaticon](https://www.flaticon.com/)
 * All other icons from [FontAwesome](https://fontawesome.com/)
+* Photo on the About page of a phone taking a picture of cupcakes by [Felix Kolthoff](https://unsplash.com/@felix_kolthoff?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
+* Photo on the About page of a person photographing fireworks by [Ben O'Bro](https://unsplash.com/@benobro?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash

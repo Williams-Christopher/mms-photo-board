@@ -23,6 +23,8 @@
 .About a {
     display: block;
     text-align: center;
+    text-decoration: none;
+    color: #F4DADE;
 }
 
 @media(max-width: 450px) {
