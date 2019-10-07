@@ -1,5 +1,7 @@
 .MediaItem {
   max-width: 500px;
+  min-width: 250px;
+  min-height: 250px;
   margin: 25px;
   padding: 25px;
   background-color: #F2F4F2;
@@ -48,12 +50,19 @@
   margin: 0 4px;
 }
 
-.MediaItem__place_name {
+.MediaItem__place {
   display: inline;
   margin: 0 0 0 5px;
 }
 
+.MediaItem__place_name {
+  margin: 0 0 0 5px;
+}
+
 .MediaItem__spinner {
+  position: relative;
+  top: 70px;
+  left: 95px;
   border: 8px solid #F4EADE;
   border-top: 8px solid #2F496E;
   border-radius: 50%;
