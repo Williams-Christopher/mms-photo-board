@@ -9,7 +9,7 @@ class MediaItem extends React.Component {
         super(props);
         this.state = {
             error: null,
-            fetchComplete: false,
+            mediaLoading: true,
         };
     }
     
@@ -25,28 +25,46 @@ class MediaItem extends React.Component {
             .catch(error => this.setState({error}))
     }
 
+    imageLoading = (e) => {
+        console.log('Image loaded...');
+        this.setState({
+            mediaLoading: false,
+        });
+    }
+
     render() {
         return (
             <div className='MediaItem'>
-                <img className='MediaItem__media' src={this.props.media_url} alt={''} />
-                <p className='MediaItem__caption'><em>{this.props.media_caption}</em></p>
-                <div className='MediaItem__footer'>
-                    <p className='MediaItem__likes_text'>
-                        {this.context.isLoggedIn
-                            ? <FontAwesomeIcon icon={'thumbs-up'} style={{color: '#2F496E', backgroundColor: '#2988BC'}} onClick={() => this.likeClickHandler(this.props.id)} />
-                            : <FontAwesomeIcon icon={'thumbs-up'} style={{color: '#F2F4F2', backgroundColor: '#2988BC'}} onClick={() => alert('You must be signed in to do this.')} />
-                        }
-                        {this.props.likes != 0
-                            ? <span className='MediaItem__likes_count'>{this.props.likes}</span>
-                            : null
-                        }
-                    </p>
+                <img
+                    className='MediaItem__media'
+                    src={this.props.media_url}
+                    onLoad={e => this.imageLoading(e)}
+                    alt={''}
+                />
+                {this.state.mediaLoading
+                    ? <div className='MediaItem__spinner'></div>
+                    :
+                        <>
+                            <p className='MediaItem__caption'><em>{this.props.media_caption}</em></p>
+                            <div className='MediaItem__footer'>
+                                <p className='MediaItem__likes_text'>
+                                    {this.context.isLoggedIn
+                                        ? <FontAwesomeIcon icon={'thumbs-up'} style={{color: '#2F496E', backgroundColor: '#2988BC'}} onClick={() => this.likeClickHandler(this.props.id)} />
+                                        : <FontAwesomeIcon icon={'thumbs-up'} style={{color: '#F2F4F2', backgroundColor: '#2988BC'}} onClick={() => alert('You must be signed in to do this.')} />
+                                    }
+                                    {this.props.likes != 0
+                                        ? <span className='MediaItem__likes_count'>{this.props.likes}</span>
+                                        : null
+                                    }
+                                </p>
 
-                    <p className='MediaItem__place_name'>
-                        <FontAwesomeIcon icon={'map-marked-alt'} style={{color: 'green'}} size='sm' />
-                        {this.props.media_location}
-                    </p>
-                </div>
+                                <p className='MediaItem__place_name'>
+                                    <FontAwesomeIcon icon={'map-marked-alt'} style={{color: 'green'}} size='sm' />
+                                    {this.props.media_location}
+                                </p>
+                            </div>
+                        </>
+                }
             </div>
         );
     };
