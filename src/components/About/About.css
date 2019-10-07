@@ -20,6 +20,10 @@
     margin: 2%;
 }
 
+.About img {
+    box-shadow: 6px 10px 25px black;
+}
+
 .About a {
     display: block;
     text-align: center;
