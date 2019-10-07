@@ -57,10 +57,10 @@ class MediaItem extends React.Component {
                                         : null
                                     }
                                 </p>
-
-                                <p className='MediaItem__place_name'>
-                                    <FontAwesomeIcon icon={'map-marked-alt'} style={{color: 'green'}} size='sm' />
-                                    {this.props.media_location}
+                               
+                                <p className='MediaItem__place'>
+                                <FontAwesomeIcon icon={'map-marked-alt'} style={{color: '#829399'}} size='sm' />
+                                    <span className='MediaItem__place_name'>{this.props.media_location}</span>
                                 </p>
                             </div>
                         </>

@@ -50,6 +50,7 @@
 
 .MediaItem__place_name {
   display: inline;
+  margin: 0 0 0 5px;
 }
 
 .MediaItem__spinner {
