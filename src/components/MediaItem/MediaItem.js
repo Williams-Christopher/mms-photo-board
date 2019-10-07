@@ -26,7 +26,6 @@ class MediaItem extends React.Component {
     }
 
     imageLoading = (e) => {
-        console.log('Image loaded...');
         this.setState({
             mediaLoading: false,
         });
