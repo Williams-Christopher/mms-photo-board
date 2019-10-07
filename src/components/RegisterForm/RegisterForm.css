@@ -1,6 +1,10 @@
-.RegisterForm fieldset {
+.RegisterForm__container {
     width: 75%;
     margin: 0 auto;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #2F496E;
+    color: #F4EADE;
 }
 
 .RegisterForm .row {
@@ -14,23 +18,51 @@
 }
 
 .RegisterForm .row input {
-    width: 200px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
+    padding: 5px;
+    max-width: 90%;
+    width: 300px;
+    height: 20px;
+    border-radius: 5px;
 }
 
 .RegisterForm button {
     display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 19.2px;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
     margin: 0 auto;
+    padding: 12.8px 24px;
+    padding: .8rem 1.5rem;
+    border-radius: 5px;
+    background-color: #F2F4F2;
+    -webkit-transition: background 500ms ease-in-out;
+    transition: background 500ms ease-in-out;
+}
+
+.RegisterForm button:hover,
+.RegisterForm button:focus {
+    background: #2988BC;
+    color: #F4EADE;
 }
 
 .RegisterForm__error {
     display: block;
-    color: red;
+    color: #F4EADE;
     font-style: italic;
     font-size: smaller;
 }
 
 @media screen and (min-width: 450px) {
+    .RegisterForm__container {
+        width: 40%;
+    }
+
     .RegisterForm .row input {
-        width: 150px;
+        width: 275px;
     }
 }

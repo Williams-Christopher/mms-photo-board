@@ -31,7 +31,7 @@
     color: #F4DADE;
 }
 
-@media(max-width: 450px) {
+@media scrren and (max-width: 450px) {
     .About__top, .About__bottom {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;

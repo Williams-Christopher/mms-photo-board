@@ -39,8 +39,8 @@ class SignInForm extends React.Component {
 
     render() {
         return(
-            <form className='LoginForm' onSubmit={this.handleSubmitLogin}>
-                <fieldset>
+            <div className='LoginForm__container'>
+                <form className='LoginForm' onSubmit={this.handleSubmitLogin}>
                     <div role='alert'>
                         {this.state.error && <p>There was a problem authenticating your credentials. Please try again.</p>}
                     </div>
@@ -53,8 +53,8 @@ class SignInForm extends React.Component {
                         <input type='password' name='user_password' id='user_password' ref={this.user_password} required />
                     </div>
                     <button type='submit'>Login</button>
-                </fieldset>
-            </form>
+                </form>
+            </div>
         );
     };
 };

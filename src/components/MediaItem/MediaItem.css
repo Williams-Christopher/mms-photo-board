@@ -36,9 +36,9 @@
 }
 
 .fa-thumbs-up {
-  padding: 4px;
+  padding: 5px;
   border: 1px solid transparent;
-  border-radius: 13px;
+  border-radius: 50%;
 }
 
 .MediaItem__likes_text {

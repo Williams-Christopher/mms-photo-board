@@ -188,8 +188,8 @@ class RegisterForm extends React.Component {
 
     render() {
         return (
-            <form className='RegisterForm' onSubmit={(e) => this.handleSubmitUser(e)}>
-                <fieldset>
+            <div className='RegisterForm__container'>
+                <form className='RegisterForm' onSubmit={(e) => this.handleSubmitUser(e)}>
                     <div role='alert'>
                         {this.state.errorServer && <p>{this.state.errorServer}.</p>}
                     </div>
@@ -240,8 +240,8 @@ class RegisterForm extends React.Component {
                     </div>
 
                     <button type='submit' disabled={!this.state.isUserValid}>Register</button>
-                </fieldset>
-            </form>
+                </form>
+            </div>
         );
     };
 };

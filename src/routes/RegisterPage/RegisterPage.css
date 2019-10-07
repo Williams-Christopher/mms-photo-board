@@ -7,3 +7,9 @@
     font-style: oblique;
     line-height: 1.25em;
 }
+
+.RegisterPage a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #F4EADE;
+}

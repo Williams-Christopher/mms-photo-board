@@ -31,7 +31,7 @@
     margin: 5px;
 }
 
-@media (min-width: 375px) {
+@media screen and (min-width: 375px) {
     .Footer p {
         font-size: 1rem;
     }

@@ -2,7 +2,20 @@
     text-align: center;
 }
 
+.LoginPage a {
+    text-decoration: none;
+    color: #F4EADE;
+}
+
 .LoginPage .demo_explainer {
     font-style: oblique;
-    line-height: 1.25em;
+    line-height: 1.5em;
+    width: 75%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 450px) {
+    .LoginPage .demo_explainer {
+        width: 40%;
+    }
 }
