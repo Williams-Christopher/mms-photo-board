@@ -16,6 +16,7 @@ class RegisterForm extends React.Component {
             phoneVerify: null,
             isPhoneMatching: false,
             isUserValid: false,
+            waitingForServer: false,
         };
     };
 
@@ -164,7 +165,10 @@ class RegisterForm extends React.Component {
 
     handleSubmitUser = (e) => {
         e.preventDefault();
-        this.setState({ errorServer: null });
+        this.setState({
+            errorServer: null,
+            waitingForServer: true
+        });
 
         const newUser = {
             user_first_name: this.state.firstName,
@@ -180,7 +184,10 @@ class RegisterForm extends React.Component {
             })
             .catch(error => {
                 if(error.error.includes)
-                this.setState({ errorServer: error.error });
+                this.setState({
+                    errorServer: error.error,
+                    waitingForServer: false,
+                });
                 console.log(error);
             })
     };
@@ -236,8 +243,11 @@ class RegisterForm extends React.Component {
                         <span className='RegisterForm__error'>{this.state.errorPhoneVerify && !this.state.errorPhone ? this.state.errorPhoneVerify : null}</span>
                         <input type='tel' name='phoneVerify' id='verify-phone' placeholder='Re-enter your phone number' spellCheck='off' autoCorrect='off' onBlur={e => this.handlePhoneVerifyInput(e)} required />
                     </div>
-
-                    <button type='submit' disabled={!this.state.isUserValid}>Register</button>
+                    
+                    { this.state.waitingForServer
+                        ? <div className='RegisterForm__spinner'></div>
+                        : <button type='submit' disabled={!this.state.isUserValid || this.state.waitingForServer}>Register</button>
+                    }
                 </form>
             </div>
         );
