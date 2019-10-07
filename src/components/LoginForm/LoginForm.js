@@ -11,7 +11,7 @@ class SignInForm extends React.Component {
         this.user_password = React.createRef();
     }
 
-    componentWillUpdate() {
+    UNSAFE_componentWillUpdate() {
         this.user_name.current.focus();
     }
 
