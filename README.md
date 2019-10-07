@@ -24,3 +24,7 @@ This client application utilizes the following:
 * CSS
 * React.js
 * FortAwesome
+
+### Credits
+* favicon by [Freepik](https://www.flaticon.com/authors/freepik) on [Flaticon](https://www.flaticon.com/)
+* All other icons from [FontAwesome](https://fontawesome.com/)
