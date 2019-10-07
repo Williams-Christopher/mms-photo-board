@@ -21,6 +21,7 @@
 .Footer p {
     display: inline;
     margin: 5px;
+    font-size: .8rem;
 }
 
 .Footer a {
@@ -28,4 +29,10 @@
     color: #F7EFE2;
     text-decoration: none;
     margin: 5px;
+}
+
+@media (min-width: 375px) {
+    .Footer p {
+        font-size: 1rem;
+    }
 }
