@@ -2,3 +2,8 @@
     text-align: center;
     width: 90%;
 }
+
+.FourOhFour a {
+    text-decoration: none;
+    color: #F4EADE;
+}

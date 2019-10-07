@@ -176,7 +176,6 @@ class RegisterForm extends React.Component {
 
         ApiServices.postUser(newUser)
             .then(result => {
-                console.log('result: ', result);
                 this.props.redirectOnSuccess();
             })
             .catch(error => {
