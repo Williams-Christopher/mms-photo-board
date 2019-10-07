@@ -49,8 +49,8 @@ class MediaItem extends React.Component {
                             <div className='MediaItem__footer'>
                                 <p className='MediaItem__likes_text'>
                                     {this.context.isLoggedIn
-                                        ? <FontAwesomeIcon icon={'thumbs-up'} style={{color: '#2F496E', backgroundColor: '#2988BC'}} onClick={() => this.likeClickHandler(this.props.id)} />
-                                        : <FontAwesomeIcon icon={'thumbs-up'} style={{color: '#F2F4F2', backgroundColor: '#2988BC'}} onClick={() => alert('You must be signed in to do this.')} />
+                                        ? <FontAwesomeIcon icon={'thumbs-up'} style={{color: '#F2F4F2', backgroundColor: '#2988BC'}} onClick={() => this.likeClickHandler(this.props.id)} />
+                                        : <FontAwesomeIcon icon={'thumbs-up'} style={{color: '#2F496E', backgroundColor: '#2988BC'}} onClick={() => alert('You must be signed in to do this.')} />
                                     }
                                     {this.props.likes != 0
                                         ? <span className='MediaItem__likes_count'>{this.props.likes}</span>
