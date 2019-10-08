@@ -8,7 +8,7 @@ function Footer(props) {
  
             <p>Created in Austin, Texas by Christopher Williams</p>
             <a href='mailto:MMSPhotoBoard@chriswillia.ms'>
-                <FontAwesomeIcon icon={'envelope'} />
+                Have a question? Need support? <FontAwesomeIcon icon={'envelope'} />
             </a>
 
         </footer>

@@ -1,3 +1,7 @@
+.LoginPage {
+    margin-bottom: 75px;
+}
+
 .LoginPage h2, .LoginPage p {
     text-align: center;
 }

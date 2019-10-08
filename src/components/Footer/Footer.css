@@ -1,5 +1,7 @@
 .Footer {
-    margin: 5% 0 0 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     font-family: "Architects Daughter", sans-serif;
     background-color: #2F496E;
     color: #F7EFE2;
@@ -28,11 +30,13 @@
     cursor: pointer;
     color: #F7EFE2;
     text-decoration: none;
+    font-size: .8rem;
     margin: 5px;
 }
 
 @media screen and (min-width: 375px) {
-    .Footer p {
+    .Footer p, .Footer a {
         font-size: 1rem;
     }
+
 }

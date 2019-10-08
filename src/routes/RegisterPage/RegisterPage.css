@@ -1,3 +1,7 @@
+.RegisterPage {
+    margin-bottom: 75px;
+}
+
 .RegisterPage h2, .RegisterPage p {
     margin: 10px;
     text-align: center;
