@@ -52,8 +52,13 @@
 
 @media screen and (max-width: 769px) {
     .NavTop {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         min-height: 50px;
         font-size: .75rem;
     }
