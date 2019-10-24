@@ -13,14 +13,15 @@ class About extends React.Component {
                         <p>
                             Sharing photos of interesting things is often fun to do. Sharing them can also be a distracting hassle. You pop onto Facebook or Twitter and are immediately swamped with notifications, memes, cat photos, and some new story about 'Florida Man'. Sometimes it would be nice just to share what you came to share and move on.
                         </p>
-                    </article>
-                    <img src={Phone01} alt='Placeholder' />
+                        </article>
+                    <img src={Phone01} alt='Photographing cupcakes with a phone' />
+
                 </div>
                 <div className='About__bottom'>
-                    <img src={Phone02} alt='More placeholder text' />
+                    <img src={Phone02} alt='Photographing fireworks with a phone' />
                     <article>
                         <p>
-                            That's why MMS Photo Board is here. Share what's interesting without distraction. Open the text message app on your phone, add a photo and an optional text caption with it, and hit the send button - just like you'd text a photo to a friend. MMS Photo Board receives your message and includes it on its photos page. Come back to MMS Photo Board to see what others have shared and like what you find interesting.
+                            That's why MMS Photo Board is here. Share what's interesting without distraction. Once you have an account on the system, just open the text message app on your phone, start a text message to 512-645-2984, add a photo and an optional text caption with it, then hit the send button - just like you'd text a photo to a friend. MMS Photo Board receives your message and includes it on its photos page. Come back to MMS Photo Board to see what others have shared and like what you find interesting.
                         </p>
                     </article>
                 </div>

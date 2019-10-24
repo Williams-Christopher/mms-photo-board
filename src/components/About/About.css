@@ -20,6 +20,10 @@
     margin: 2%;
 }
 
+article > p {
+    font-size: 2rem;
+}
+
 .About img {
     box-shadow: 6px 10px 25px black;
 }
@@ -32,15 +36,28 @@
     margin-bottom: 75px;
 }
 
-@media scrren and (max-width: 450px) {
+@media screen and (max-width: 450px) {
     .About__top, .About__bottom {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
+        justify-content: center;
     }
 
     .About article, .About img {
         max-width: 90%;
+    }
+
+    article > p {
+        font-size: 1rem;
+    }
+
+    .About__bottom > img {
+        display: none;
+    }
+
+    .About img {
+        word-wrap: break-word;
     }
 }
