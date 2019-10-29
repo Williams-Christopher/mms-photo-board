@@ -57,7 +57,7 @@ class App extends React.Component {
       <>
         <main role="main">
           <AppContext.Provider value={contextValue}>
-          <Navigation isLoggedIn={this.state.isLoggedIn} />
+          <Navigation />
           <Error error={this.state.error} />
           <Switch>
             <Route

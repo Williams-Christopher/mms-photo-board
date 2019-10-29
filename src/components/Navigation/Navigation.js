@@ -24,21 +24,21 @@ class Navigation extends React.Component {
                     <li className='NavTop__link'>
                         <Link to='/About'>About</Link>
                     </li>
-                    {this.props.isLoggedIn
+                    {this.context.isLoggedIn
                         ? null
                         : <li className='NavTop__link'>
                             <Link to='/SignUp'>Sign-up</Link>
                             </li>
                     }
                     
-                    {this.props.isLoggedIn
+                    {this.context.isLoggedIn
                         ? null
                         : <li className='NavTop__link'>
                             <Link to='/Login'>Login</Link>
                             </li>
                     }
 
-                    {this.props.isLoggedIn
+                    {this.context.isLoggedIn
                         ? <li className='NavTop__link'>
                             <Link onClick={this.handleLogout} to='/'>Logout</Link>
                             </li>
