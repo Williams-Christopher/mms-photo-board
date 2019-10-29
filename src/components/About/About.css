@@ -36,7 +36,7 @@ article > p, article > ol {
     margin-bottom: 75px;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 1025px) {
     .About__top, .About__bottom {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -50,7 +50,7 @@ article > p, article > ol {
     }
 
     article > p, article > ol {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .About__bottom > img {
