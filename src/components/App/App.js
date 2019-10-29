@@ -11,6 +11,7 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
 import MediaPage from '../../routes/MediaPage/MediaPage';
 import FourOhFourPage from '../../routes/FourOhFourPage/FourOhFourPage';
+import './app.css';
 
 class App extends React.Component {
   constructor(props) {
