@@ -49,7 +49,7 @@ article > p, article > ol {
         max-width: 90%;
     }
 
-    article > p, article > ol {
+    article > p, article > ol, .About a {
         font-size: 1.25rem;
     }
 
@@ -59,5 +59,9 @@ article > p, article > ol {
 
     .About img {
         word-wrap: break-word;
+    }
+
+    .About a {
+        font-size:
     }
 }
