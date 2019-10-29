@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AppContext from '../../context/AppContext';
 import Phone01 from '../../images/Phone01-min.png'
 import Phone02 from '../../images/Phone02-min.png';
 import './About.css';
 
 class About extends React.Component {
+    static contextType = AppContext;
+
     render() {
         return (
             <section className='About'>
@@ -33,7 +36,10 @@ class About extends React.Component {
                         </p>
                     </article>
                 </div>
-                <Link to='/SignUp'>Sign up now</Link>
+                { this.context.isLoggedIn
+                        ? null
+                        : <Link to='/SignUp'>Sign up now</Link>
+                }
             </section>
         );
     };
